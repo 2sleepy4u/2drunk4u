@@ -142,5 +142,5 @@ function centerContent(){
             "margin-top", $(document).height() / 2 - $("main").height() / 2 
         )
         $("main").css("visibility", "initial")
-    }, 50);
+    }, 150);
 }
