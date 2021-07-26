@@ -35,8 +35,9 @@ body{
 #title{
     margin:auto;
     width: 90%;
+    /*margin-top: -60px;*/
     margin-bottom: 60px;
-    padding-top: 30px;
+    padding-top: 20px;
 
     font-size: 70px;
     font-family: title;
@@ -169,4 +170,13 @@ body{
     color: whitesmoke;
     font-size:larger;
     font-family: comic-sans;
+}
+
+@media only screen and (max-height: 700px){
+    #logo{
+        width: 100px;
+        height: 100px;
+    }
+
+    
 }
