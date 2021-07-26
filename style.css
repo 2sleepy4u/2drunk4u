@@ -1,6 +1,4 @@
 body{
-    position: absolute;
-    top: 0;
     margin: auto;
     text-align: center;
     width: 100%;
@@ -37,7 +35,6 @@ body{
 #title{
     margin:auto;
     width: 90%;
-    margin-top: -60px;
     margin-bottom: 60px;
     padding-top: 30px;
 
