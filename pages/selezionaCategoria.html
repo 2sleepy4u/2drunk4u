@@ -1,0 +1,19 @@
+<script>
+    fetch("../drink/functions/getCategories.php", {
+        method: 'get'
+    })
+        .then(response => response.json())
+        .then(categories => {
+            list = categories
+            console.log(list)
+            displayCategories(list)
+        })
+        
+</script>
+
+<div id="selCategoria">
+
+</div>
+<script>
+    
+</script>

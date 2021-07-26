@@ -1,0 +1,24 @@
+<script>
+    //se ci sono giocatori li stampa
+    printPlayerList()
+    //funzione di validazione per il caricamento della pagina successiva
+    var validate = function(){
+        return (getPlayerNumber() > 1)
+    }
+
+    //funcione di callback in caso di errori
+    var eCallback = function(){
+        alert('Giocatori non sufficienti')
+    }
+</script>
+<div id="title">Gagi Party<br><img id="logo" src="../drink/flamingo.png" /></div>
+<div id="insGiocatori">
+    <div id="playersList"></div>
+    <div id="playerForm">
+        <input type="text" placeholder="Aggiungi giocatore" id="playerName">
+        <button id='addPlayer' onclick="addPlayer()">+</button>
+    </div>
+    <br>
+    <button id="startGame" onclick="loadContent('genera.html', validate, null, eCallback)">Gioca</button>
+    <button id="startGame" onclick="loadContent('selezionaCategoria.html')">Cat</button>
+</div>
