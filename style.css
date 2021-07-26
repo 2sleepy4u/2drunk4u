@@ -1,4 +1,6 @@
 body{
+    position: absolute;
+    top: 0;
     margin: auto;
     text-align: center;
     width: 100%;
