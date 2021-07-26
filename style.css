@@ -1,7 +1,7 @@
 body{
     margin: auto;
     text-align: center;
-    width: 100%;
+    width: 99%;
 
     font-size:larger;
     font-family: comic-sans;
@@ -105,7 +105,7 @@ body{
 }
 
 #startGame{
-    margin-top: 40px;
+    margin-top: 12px;
     width: 70%;
     height: 60px;
     border-radius: 25px;
@@ -174,9 +174,15 @@ body{
 
 @media only screen and (max-height: 700px){
     #logo{
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
     }
+
+    #title{
+        margin-bottom: 12px;
+    }
+
+ 
 
     
 }
