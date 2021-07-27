@@ -8,7 +8,7 @@
  $categories = array();
     $query = "SELECT nome FROM Categorie";
     $result = pg_query($conn, $query);
-    echo $result;
+    var_dump(pg_fetch_all($result));
     $categoryList = array();
     $index = 0;
     if($result){
