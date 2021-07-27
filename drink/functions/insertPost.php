@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    $testo = $_POST['testo'];
+    $testo = pg_escape_string($_POST['testo']);
     $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 1)";
     $result = pg_query($conn, $query);
     echo pg_fetch_all($result);
