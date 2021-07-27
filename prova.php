@@ -8,13 +8,13 @@
  $categories = array();
     $query = "SELECT nome FROM Categorie";
     $result = pg_query($conn, $query);
-
+    echo $result;
     $categoryList = array();
     $index = 0;
     if($result){
         foreach($result as $row) { 
             $categoria = $row['nome'];
-            echo $row;
+            
             $category = array('categoria' => $categoria);
             $categoryList[$index++] = $categoria;
             } 
