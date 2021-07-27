@@ -5,6 +5,8 @@
     $query = "SELECT nome FROM categorie";
     $result = pg_query($conn, $query);
 
+    $result = pg_fetch_all($result);
+
     $categoryList = array();
     $index = 0;
     if($result){
