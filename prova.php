@@ -10,12 +10,12 @@
     $result = pg_query($conn, $query);
     var_dump(pg_fetch_all($result));
 
-    $fresult = pg_fetch_all($result);
+    $result = pg_fetch_all($result);
 
     $categoryList = array();
     $index = 0;
-    if($fresult){
-        foreach($fresult as $row) { 
+    if($result){
+        foreach($result as $row) { 
             $categoria = $row['nome'];
             
             $category = array('categoria' => $categoria);
