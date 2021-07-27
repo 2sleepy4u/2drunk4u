@@ -9,10 +9,13 @@
     $query = "SELECT nome FROM Categorie";
     $result = pg_query($conn, $query);
     var_dump(pg_fetch_all($result));
+
+    $fresult = pg_fetch_all($result);
+
     $categoryList = array();
     $index = 0;
-    if($result){
-        foreach($result as $row) { 
+    if($fresult){
+        foreach($fresult as $row) { 
             $categoria = $row['nome'];
             
             $category = array('categoria' => $categoria);
