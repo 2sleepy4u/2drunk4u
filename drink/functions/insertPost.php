@@ -9,5 +9,5 @@
 ?>
 
 <div>
-    <a href="../index.php"> HOME </a>
+    <a href="index.php"> HOME </a>
 </div>
