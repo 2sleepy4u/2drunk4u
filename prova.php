@@ -3,7 +3,7 @@
     $db["path"] = ltrim($db["path"], "/");
 
     $conn = pg_connect(getenv("DATABASE_URL"));
-    $result = pg_query($conn, "CREATE TABLE Categorie(id_categoria int not null auto_increment PRIMARY KEY, nome varchar(100) not null)");
+    $result = pg_query($conn, "SELECT * FROM TEST");
     var_dump(pg_fetch_all($result));
 
     pg_close($conn);
