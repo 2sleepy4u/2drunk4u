@@ -172,6 +172,11 @@ body{
     font-family: comic-sans;
 }
 
+#insSentences{
+    width: 70%;
+    height: 300px;
+}
+
 @media only screen and (max-height: 700px){
     #logo{
         width: 70px;
@@ -186,3 +191,4 @@ body{
 
     
 }
+
