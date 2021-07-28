@@ -13,7 +13,7 @@
     include("disconnect.php");
 ?>
 <script>
-    window.location.replace("https://im2drunk4u.herokuapp.com");
+    //window.location.replace("https://im2drunk4u.herokuapp.com");
 
 </script>
 <div>
