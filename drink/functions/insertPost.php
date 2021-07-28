@@ -9,7 +9,7 @@
     $result = pg_query($conn, $query);
     echo pg_fetch_all($result);
 
-    include("disconnect.php");+
+    include("disconnect.php");
     //header("index.php")
 ?>
 <div>
