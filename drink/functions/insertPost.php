@@ -1,7 +1,8 @@
 <?php
     include("connect.php");
     //per togliere i caratteri problematici tipo apostrofi
-    $testo = explode(PHP_EOL, $_POST['testo']);
+    $testo = $_POST['testo'];
+    //$testo = explode(PHP_EOL, $testo);
     $testo = pg_escape_string($testo);
 
     $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 1)";
