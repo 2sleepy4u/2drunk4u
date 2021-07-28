@@ -127,6 +127,10 @@ function generateSentence(list){
     $('#sentence').text("")
     $('#sentence').text(formatSentence(list[random].testo))
     centerContent()
+    centerContent()
+    centerContent()
+    centerContent()
+    
 }
 
 function displayCategories(list){
@@ -147,26 +151,12 @@ function centerContent(fast){
     }else{
 
         $("main").css("visibility", "hidden")
-
-        var pre = 0
-        var perfect = setInterval(()=>{
-            pre = $("main").height()
-            
+        setTimeout(function(){
             $("main").css(
                 "margin-top", $(document).height() / 2 - $("main").height() / 2 
-            )    
-            
-            if(pre == $("main").height()){
-                clearInterval(perfect)
-                setTimeout(function(){
-                    $("main").css("visibility", "initial")
-                }, 150);
-
-            }
-                
-        }, 50);
-
-        
+            )
+            $("main").css("visibility", "initial")
+        }, 150);
     }
 
     
