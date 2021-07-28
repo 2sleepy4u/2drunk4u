@@ -47,6 +47,20 @@ body{
 
 }
 
+#subTitle{
+    margin:auto;
+    width: 90%;
+    /*margin-top: -60px;*/
+    margin-bottom: 60px;
+
+    font-size: 50px;
+    font-family: title;
+    color: rgb(165, 211, 224);
+    background-color:rgba(184, 166, 214, 1);
+    border-radius: 10px;
+
+}
+
 #lblPlayerList{
     display: block;
     padding-bottom: 10px;
@@ -166,15 +180,35 @@ body{
     border-radius: 15px;
 
     border: none;
-    background-color: rgb(165, 211, 224);
+    background-color: rgb(73, 88, 92);
     color: whitesmoke;
     font-size:larger;
     font-family: comic-sans;
 }
 
+.actionButton{
+    margin: auto;
+    margin-top: 12px;
+    width: 33%;
+    height: 60px;
+    border-radius: 25px;
+    display: inline-block;
+
+    border: none;
+    background-color: rgb(165, 211, 224);
+    color: whitesmoke;
+    font-size:larger;
+    font-family: comic-sans;
+
+}
+
 #insSentences{
     width: 70%;
     height: 300px;
+
+    font-size: larger;
+    color: whitesmoke;
+    background-color: rgba(122, 122, 122, 0.7);
 }
 
 @media only screen and (max-height: 700px){
@@ -187,8 +221,8 @@ body{
         margin-bottom: 12px;
     }
 
- 
-
-    
+    #subTitle{
+        margin-bottom: 12px;
+    }
 }
 
