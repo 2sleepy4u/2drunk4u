@@ -137,21 +137,27 @@ function displayCategories(list){
     }
 }
 
-function centerContent(fast){
+function centerContent(custom){
     
-    if(fast != null && fast){
+    if(custom != null && custom){
         $("main").css(
             "margin-top", $(document).height() / 2 - $("main").height() / 2 
         )
         $("main").css("visibility", "initial")
     }else{
+
+        if(custom > 1)
+            var time = custom
+        else
+            var time = 150
+
         $("main").css("visibility", "hidden")
         setTimeout(function(){
             $("main").css(
                 "margin-top", $(document).height() / 2 - $("main").height() / 2 
             )
             $("main").css("visibility", "initial")
-        }, 150);
+        }, time);
     }
 
     
