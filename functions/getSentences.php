@@ -2,9 +2,10 @@
     include("connect.php");
 
     $sentences = array();
-    $query = "SELECT testo, nome FROM post, categorie WHERE categoria=categorie.id";
-    $conn = pg_connect(getenv("DATABASE_URL"));
+    $query = "SELECT testo, nome FROM post, categorie WHERE categoria=categorie.id_categoria";
     $result = pg_query($conn, $query);
+
+    $result = pg_fetch_all($result);
 
     $sentenceList = array();
     $index = 0;
@@ -17,11 +18,6 @@
             $sentenceList[$index++] = $sentence;
             } 
     }
-
-
-    
-
-    
 
     //$fp = fopen('results.json', 'w');
     //fwrite($fp, json_encode($sentenceList));

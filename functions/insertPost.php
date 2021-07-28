@@ -1,22 +1,23 @@
 <?php
     include("connect.php");
-    $testo = mysqli_real_escape_string($conn, $_POST['testo']);
-    $categoria = $_POST['category'];
-    $titolo = $_POST['titolo'];
-    $data = date('Y-m-d H:i:s');
-    $query = "INSERT INTO Post (testo, categoria, titolo, data) VALUES ('$testo', '$categoria', '$titolo', '$data')";
-
-    if (mysqli_query($conn, $query)) 
-    {
-        echo "New record created successfully \n";
-    } 
-    else 
-    {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    //per togliere i caratteri problematici tipo apostrofi
+    $testo =  $_POST['testo'];
+    //per l'apostrofo
+    $testo = pg_escape_string($testo);
+    //per prendere tutte le righe
+    $textList = preg_split('/\r\n|\r|\n/', $testo);
+    
+    foreach($textList as $row){
+        $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
+        $result = pg_query($conn, $query);
+        echo pg_fetch_all($result);
     }
+
     include("disconnect.php");
 ?>
-
+<script>
+    window.location.replace("https://im2drunk4u.herokuapp.com");
+</script>
 <div>
-    <a href="../index.php"> HOME </a>
+    <a href="https://im2drunk4u.herokuapp.com"> HOME </a>
 </div>
