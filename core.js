@@ -85,7 +85,8 @@ function printPlayerList(){
     let max = parseInt(getVariable("maxPlayers"))
     for(var i=1; i<=max; i++){
         if(getVariable("G" + i) != null)
-            $("#playersList").append("<div class='playerContainer'><span class='player'  id=G"+ i + ">" + getVariable("G" + i) + "</span><a class='removePlayer' onclick=removePlayer('G"+ i + "')> X</a><div>")
+            $("#playersList").append("<div class='playerContainer' onclick=removePlayer('G"+ i + "')><span class='player'  id=G"+ i + ">" + getVariable("G" + i) + "</span><span class='removePlayer'> X</span></div>")
+            //$("#playersList").append("<div class='playerContainer'><span class='player'  id=G"+ i + ">" + getVariable("G" + i) + "</span><a class='removePlayer' onclick=removePlayer('G"+ i + "')> X</a><div>")
     }
     centerContent(true)
 }
@@ -130,7 +131,7 @@ function generateSentence(list){
     centerContent()
     centerContent()
     centerContent()
-    
+
 }
 
 function displayCategories(list){

@@ -140,12 +140,13 @@ body{
 .playerContainer{
     display: block;
     margin: auto;
-    
+    border: none;
+
     margin-top: 3px;
     margin-bottom: 3px;
     padding: 12px;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 8px;
     width: 50%;
     height: 20px;
 
