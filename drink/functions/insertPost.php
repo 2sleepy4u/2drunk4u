@@ -8,12 +8,12 @@
     
 
     foreach($textList as $row){
-        echo json_encode($row);
+        $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
+        $result = pg_query($conn, $query);
+        echo pg_fetch_all($result);
     }
 
-    $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 2)";
-    $result = pg_query($conn, $query);
-    echo pg_fetch_all($result);
+    
 
     include("disconnect.php");
 ?>
