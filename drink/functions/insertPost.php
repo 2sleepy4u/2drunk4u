@@ -2,7 +2,7 @@
     include("connect.php");
     //per togliere i caratteri problematici tipo apostrofi
     $testo =  $_POST['testo'];
-    //$testo = explode(PHP_EOL, $testo);
+    $testo = explode(PHP_EOL, $testo);
     $testo = pg_escape_string($testo);
 
     $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 2)";
@@ -11,6 +11,10 @@
 
     include("disconnect.php");
 ?>
+<script>
+    window.location.replace("https://im2drunk4u.herokuapp.com");
+
+</script>
 <div>
-    <a href="../index.php"> HOME </a>
+    <a href="https://im2drunk4u.herokuapp.com"> HOME </a>
 </div>
