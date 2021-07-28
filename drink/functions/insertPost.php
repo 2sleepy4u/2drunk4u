@@ -4,8 +4,13 @@
     $testo =  $_POST['testo'];
 
     $testo = pg_escape_string($testo);
-    $rows = preg_split('/\r\n|\r|\n/', $testo);
-    echo json_encode($rows);
+    $textList = preg_split('/\r\n|\r|\n/', $testo);
+    
+
+    foreach($textList as $row){
+        echo json_encode($row);
+    }
+
     $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 2)";
     $result = pg_query($conn, $query);
     echo pg_fetch_all($result);
