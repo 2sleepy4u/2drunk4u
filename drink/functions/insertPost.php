@@ -10,7 +10,6 @@
     echo pg_fetch_all($result);
 
     include("disconnect.php");
-    header("index.php");
 ?>
 <div>
     <a href="../index.php"> HOME </a>
