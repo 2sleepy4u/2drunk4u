@@ -151,7 +151,7 @@ function centerContent(custom){
         else
             var time = 150
 
-        $("main").css("visibility", "hidden")
+        //$("main").css("visibility", "hidden")
         setTimeout(function(){
             $("main").css(
                 "margin-top", $(document).height() / 2 - $("main").height() / 2 
