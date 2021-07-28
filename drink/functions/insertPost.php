@@ -5,7 +5,7 @@
 
     $testo = pg_escape_string($testo);
     $rows = preg_split('/\r\n|\r|\n/', $testo);
-    echo $rows;
+    echo json_encode($rows);
     $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 2)";
     $result = pg_query($conn, $query);
     echo pg_fetch_all($result);
