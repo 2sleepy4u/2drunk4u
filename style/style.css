@@ -7,7 +7,7 @@ body{
     font-family: comic-sans;
     
     background-color: rgb(142, 113, 180);
-    background-image: url(bg2.png);
+    background-image: url(bg_picture.png);
 
 }
 
@@ -23,13 +23,13 @@ body{
 
 @font-face {
     font-family: comic-sans;
-    src: url(style/comic.ttf);
+    src: url(comic.ttf);
 }
 
 @font-face {
     
     font-family: title;
-    src: url(style/Sunset.woff);
+    src: url(Sunset.woff);
 }
 
 #title{
