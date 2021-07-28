@@ -87,6 +87,7 @@ function printPlayerList(){
         if(getVariable("G" + i) != null)
             $("#playersList").append("<div class='playerContainer'><span class='player'  id=G"+ i + ">" + getVariable("G" + i) + "</span><a class='removePlayer' onclick=removePlayer('G"+ i + "')> X</a><div>")
     }
+    centerContent(true)
 }
 
 function removePlayer(code){
@@ -130,17 +131,28 @@ function generateSentence(list){
 
 function displayCategories(list){
     for(const i in list){
-        var callback = function(){setVariable('category', list[i])}
-        $("#selCategoria").append("<button class='category' onclick=loadContent('genera.html', null, callback)>" + list[i] + "</button>")
+        //var callback = function(){setVariable('category', list[i])}
+        var callback = function(){ console.log("ciao")}
+        $("#selCategoria").append("<button class='category' onclick=''>" + list[i] + "</button>")
     }
 }
 
-function centerContent(){
-    $("main").css("visibility", "hidden")
-    setTimeout(function(){
+function centerContent(fast){
+    
+    if(fast != null && fast){
         $("main").css(
             "margin-top", $(document).height() / 2 - $("main").height() / 2 
         )
         $("main").css("visibility", "initial")
-    }, 150);
+    }else{
+        $("main").css("visibility", "hidden")
+        setTimeout(function(){
+            $("main").css(
+                "margin-top", $(document).height() / 2 - $("main").height() / 2 
+            )
+            $("main").css("visibility", "initial")
+        }, 150);
+    }
+
+    
 }
