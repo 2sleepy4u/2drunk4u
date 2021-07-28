@@ -137,27 +137,36 @@ function displayCategories(list){
     }
 }
 
-function centerContent(custom){
+function centerContent(fast){
     
-    if(custom != null && custom){
+    if(fast != null && fast){
         $("main").css(
             "margin-top", $(document).height() / 2 - $("main").height() / 2 
         )
         $("main").css("visibility", "initial")
     }else{
 
-        if(custom > 1)
-            var time = custom
-        else
-            var time = 150
+        $("main").css("visibility", "hidden")
 
-        //$("main").css("visibility", "hidden")
-        setTimeout(function(){
+        var pre = 0
+        var perfect = setInterval(()=>{
+            pre = $("main").height()
+            
             $("main").css(
                 "margin-top", $(document).height() / 2 - $("main").height() / 2 
-            )
-            $("main").css("visibility", "initial")
-        }, time);
+            )    
+            
+            if(pre == $("main").height()){
+                clearInterval(perfect)
+                setTimeout(function(){
+                    $("main").css("visibility", "initial")
+                }, 150);
+
+            }
+                
+        }, 50);
+
+        
     }
 
     
