@@ -4,7 +4,7 @@
     $testo = explode(PHP_EOL, $_POST['testo']);
     $testo = pg_escape_string($testo);
 
-    $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 2)";
+    $query = "INSERT INTO Post (testo, categoria) VALUES ('$testo', 1)";
     $result = pg_query($conn, $query);
     echo pg_fetch_all($result);
 
