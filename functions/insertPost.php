@@ -9,7 +9,8 @@
 
     $textList = json_encode($testo);
     echo $textList;
-    echo $textList[0];
+    echo $testo;
+    
     foreach($textList as $row){
         echo $row;
         $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
