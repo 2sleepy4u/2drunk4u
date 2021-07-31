@@ -3,7 +3,7 @@ function loadContent(name, validation, success, error){
         setVariable("location", name)
         $("main").empty()
         $("main").load('pages/' + name)
-        centerContent()
+        centerContentLoop(4)
 
         try{
             success()
@@ -16,7 +16,7 @@ function loadContent(name, validation, success, error){
             setVariable("location", name)
             $("main").empty()
             $("main").load('pages/' + name)
-            centerContent()
+            centerContentLoop(4)
 
             try{
                 success()
