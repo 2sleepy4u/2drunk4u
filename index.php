@@ -21,7 +21,7 @@
         <script>
             setVariable("maxPlayers", 10)
             loadContent("inserisciGiocatori.html")
-            
+
         </script>
 
     </body>

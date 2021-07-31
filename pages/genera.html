@@ -29,5 +29,24 @@
         $("#sentence").text("Premi sullo schermo")
         
     
-        $("#sentence").css("writing-mode"," vertical-rl")
+    $("#sentence").css("writing-mode"," vertical-rl")
+
+    $('#generate').each(function() {
+
+        var timeout,
+            longtouch;
+
+        $(this).bind('touchstart', function() {
+        timeout = setTimeout(function() {
+            longtouch = true;
+        }, 3000);
+        }).bind('touchend', function() {
+            if (longtouch) 
+                loadContent("inserisciGiocatori.html")
+            
+            longtouch = false;
+            clearTimeout(timeout);
+        });
+
+    });
 </script>
