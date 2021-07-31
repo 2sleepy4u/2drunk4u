@@ -7,10 +7,9 @@
     //per prendere tutte le righe
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
-    $textList = json_encode($testo);
-    echo $textList;
-    echo $testo;
-    
+    $textList = json_decode($testo);
+    var_dump($textList);
+
     foreach($textList as $row){
         echo $row;
         $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
