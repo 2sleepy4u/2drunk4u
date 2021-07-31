@@ -211,10 +211,14 @@ body{
 #insSentences{
     width: 70%;
     height: 300px;
+    margin: auto;
 
     font-size: larger;
     color: whitesmoke;
     background-color: rgba(122, 122, 122, 0.7);
+
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 @media only screen and (max-height: 700px){
@@ -232,3 +236,14 @@ body{
     }
 }
 
+.riga{
+    margin: auto;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+
+
+    text-align: left;
+    background-color: thistle;
+}

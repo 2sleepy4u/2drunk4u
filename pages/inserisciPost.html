@@ -1,10 +1,51 @@
 <div id="insPost">
     <div id="subTitle">Inserisci frasi</div>
     <form method="POST" action="../functions/insertPost.php">
-        <textarea id="insSentences" name="testo"></textarea>
+        <!-- <textarea id="insSentences" name="testo"></textarea> -->
+        <div id=insSentences name="testo" contenteditable="true" ></div>
         <br>
         <input id="startGame" type="submit" value="Inserisci">
         <!-- aggiungere pulsante per incollare in automatico-->
     </form>
     <button id="startGame" onclick="loadContent('inserisciGiocatori.html')">Indietro</button>
 </div>
+<script>
+    $( "#insSentences").bind('DOMSubtreeModified', function() {
+        formatSummary()
+    })
+
+
+    function formatSummary(){
+
+        //nel caso ci sia del testo senza DIV attorno gli aggiunge (il primo elemento non ha mai div)
+        if(!$($('#insSentences').contents()).is("div"))
+            $($('#insSentences').contents()).wrap('<div></div>')
+        
+        //gestisce i figli dei nodi
+        //nessuna frase può avere nodi figli
+        if($('#insSentences').contents().children().length > 0 && !$('#insSentences').contents().children().is('br')){
+            var children = $('#insSentences').contents().children()
+            $('#insSentences').contents().children().parent().remove()
+            $('#insSentences').append(children)
+            $('#insSentences').contents().children().remove()
+        }
+
+        //viene aggiunta la classe per visualizzare bene le righe
+        $('#insSentences').children().addClass("riga")
+
+        //per permettere di rimuovere le frasi onclick
+        $('#insSentences').children().off('click')
+        $('#insSentences').children().click((e)=>{
+            $(e.target).remove()
+        })  
+  
+        //vengono salvate le frasi
+        var righe = $('#insSentences').children()
+        var frasi = {}
+
+        for(var i=0;i<righe.length;i++)
+            frasi[i] = $(righe[i]).text()
+        
+        //console.log(frasi)          
+    }
+</script>
