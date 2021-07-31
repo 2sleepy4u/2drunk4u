@@ -3,7 +3,7 @@ function loadContent(name, validation, success, error){
         setVariable("location", name)
         $("main").empty()
         $("main").load('pages/' + name)
-        centerContentLoop(4)
+        centerContent()
 
         try{
             success()
@@ -16,7 +16,7 @@ function loadContent(name, validation, success, error){
             setVariable("location", name)
             $("main").empty()
             $("main").load('pages/' + name)
-            centerContentLoop(4)
+            centerContent()
 
             try{
                 success()
@@ -32,6 +32,7 @@ function loadContent(name, validation, success, error){
             }
         }
     }
+    centerContent()
 }
 
 function checkMobile() {
