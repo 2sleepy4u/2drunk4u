@@ -8,7 +8,8 @@
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
     $textList = json_encode($testo);
-    
+    echo $textList;
+    echo $textList[0];
     foreach($textList as $row){
         echo $row;
         $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
