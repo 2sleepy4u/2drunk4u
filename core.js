@@ -127,10 +127,7 @@ function generateSentence(list){
 
     $('#sentence').text("")
     $('#sentence').text(formatSentence(list[random].testo))
-    centerContent()
-    centerContent()
-    centerContent()
-    centerContent()
+    centerContentLoop(4)
 
 }
 
@@ -158,7 +155,11 @@ function centerContent(fast){
             )
             $("main").css("visibility", "initial")
         }, 150);
-    }
+    }  
+}
 
-    
+function centerContentLoop(num){
+    for(var i=0;i<num;i++){
+        centerContent(true)
+    }
 }
