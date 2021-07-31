@@ -8,7 +8,7 @@
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
     $textList = json_decode($testo);
-    var_dump($textList);
+    //var_dump($textList);
 
     foreach($textList as $row){
         echo $row;
@@ -20,7 +20,7 @@
     include("disconnect.php");
 ?>
 <script>
-    //window.location.replace("https://im2drunk4u.herokuapp.com");
+    window.location.replace("https://im2drunk4u.herokuapp.com");
 </script>
 <div>
     <a href="https://im2drunk4u.herokuapp.com"> HOME </a>
