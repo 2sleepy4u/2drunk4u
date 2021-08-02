@@ -44,8 +44,14 @@
         var righe = $('#insSentences').children()
         var frasi = {}
 
-        for(var i=0;i<righe.length;i++)
-            frasi[i] = $(righe[i]).text()
+        for(var i=0;i<righe.length;i++){
+            var str = $(righe[i]).text()
+            str = str.trim()
+            if(str != "")
+                frasi[i] = str
+        }
+
+            
         
         console.log(frasi) 
 
