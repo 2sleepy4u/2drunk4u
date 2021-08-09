@@ -1,7 +1,7 @@
 .Select category from Insert_Post page
 .Understand how to do category select before playing
 ?Insert post by name
-
+.Ottimizzare centerContent (rimuovendo così magari centerContentLoop)
 
 -Settings page
   .max players (number)

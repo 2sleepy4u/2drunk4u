@@ -8,6 +8,7 @@
         <input id="startGame" type="submit" value="Inserisci">
         <!-- aggiungere pulsante per incollare in automatico-->
     </form>
+    <button id="startGame" onclick="forceFormat()">Force Format</button>
     <button id="startGame" onclick="loadContent('inserisciGiocatori.html')">Indietro</button>
 </div>
 <script>
@@ -16,12 +17,22 @@
     })
 
 
+    function forceFormat(){
+        var reg = /(\<div.*?\>)/gi;
+        var txt = $('#insSentences').contents()[0].outerHTML.replace(reg, "");
+        txt = "<div class='riga'>" + txt.replaceAll("<br>", "</div><div class='riga'>") + "</div>"
+        $('#insSentences').children().remove()
+        $('#insSentences').append($(txt).prev())
+    }
+
     function formatSummary(){
 
         //nel caso ci sia del testo senza DIV attorno gli aggiunge (il primo elemento non ha mai div)
         if(!$($('#insSentences').contents()).is("div"))
             $($('#insSentences').contents()).wrap('<div></div>')
-        
+            
+            
+
         //gestisce i figli dei nodi
         //nessuna frase può avere nodi figli
         if($('#insSentences').contents().children().length > 0 && !$('#insSentences').contents().children().is('br')){
