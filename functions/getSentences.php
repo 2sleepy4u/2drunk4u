@@ -13,8 +13,9 @@
         foreach($result as $row) { 
             $testo = $row['testo']; 
             $categoria = $row['nome'];
+            $tipo = $row['tipo'];
 
-            $sentence = array('categoria' => $categoria, 'testo' => $testo);
+            $sentence = array('categoria' => $categoria, 'testo' => $testo, 'tipo' => $tipo);
             $sentenceList[$index++] = $sentence;
             } 
     }

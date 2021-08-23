@@ -54,6 +54,8 @@ function getRandomPlayer(){
 
 function formatSentence(sentence){
     let prev;
+    var regExp = /\[([^]+)\]/g
+
     while(sentence.includes("#")){
         let player = getRandomPlayer()
         if(prev != null && prev != player)
@@ -62,11 +64,9 @@ function formatSentence(sentence){
             sentence = sentence.replace("#", player)
 
         prev = player
-
     }
 
     return sentence
-    
 }
 
 function generateSentence(list){
@@ -77,6 +77,19 @@ function generateSentence(list){
     $('#sentence').text(formatSentence(list[random].testo))
     centerContentLoop(4)
 
+}
+
+function generateSentenceList(sentenceList, n){
+    var list = []
+    for(var i=0;i<n;i++){
+        let random = Math.floor(Math.random() * list.length)
+
+        list.append(formatSentence(list[random].testo))
+
+
+    }
+
+    return list;
 }
 
 function displayCategories(list){
