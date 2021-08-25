@@ -77,7 +77,7 @@ function displaySentence(list){
     let item = list.shift()
     $('#sentence').text("")
     $('#sentence').text(item.testo)
-    if(item.tipo == "effect")
+    if(item.tipo == "temp")
         $('body').css("background-color", "#a09f9f")
     else
         $('body').css("background-color", "rgb(142, 113, 180)")
