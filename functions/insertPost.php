@@ -11,8 +11,8 @@
     $array = array($textList);
     var_dump($array);
     
-    foreach($textList as $row){
-        echo "test" . var_dump($row);
+    foreach($array as $row){
+        echo "test" . $row['testo'];
         //$query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
         //$result = pg_query($conn, $query);
         //echo pg_fetch_all($result);
