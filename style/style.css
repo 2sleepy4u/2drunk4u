@@ -226,7 +226,7 @@ body{
 }
 
 .effect{
-    background-color: orange !important;
+    background-color: rgb(79,148,190) !important;
 }
 
 @media only screen and (max-height: 700px){
