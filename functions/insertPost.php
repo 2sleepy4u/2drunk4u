@@ -8,10 +8,10 @@
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
     $textList = json_decode($testo);
-    var_dump($textList);
-    var_dump($textList["0"]);
-    foreach($textList as $row){
-        echo "test" . var_dump($row['testo']);
+    //var_dump($textList);
+    foreach($textList as $key => $value){
+        echo "test" . $key . $value;
+
         $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
         $result = pg_query($conn, $query);
         echo pg_fetch_all($result);
