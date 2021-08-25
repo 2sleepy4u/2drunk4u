@@ -10,7 +10,7 @@
     $textList = json_decode($testo);
     var_dump($textList);
     foreach($textList as $row){
-        echo "test" . var_dump($row);
+        echo "test" . var_dump($row['testo']);
         $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
         $result = pg_query($conn, $query);
         echo pg_fetch_all($result);
