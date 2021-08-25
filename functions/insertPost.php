@@ -15,9 +15,9 @@
     
     foreach($a as $row){
         echo "test" . $row['testo'];
-        //$query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
-        //$result = pg_query($conn, $query);
-        //echo pg_fetch_all($result);
+        $query = "INSERT INTO Post (testo, categoria, tipo) VALUES ('$row['testo']', 1, '$row['tipo']')";
+        $result = pg_query($conn, $query);
+        echo pg_fetch_all($result);
     }
     
 
