@@ -9,9 +9,11 @@
     
     $textList = json_decode(json_encode($testo), true);
     $array = array($textList);
-    var_dump($array);
+    $a = $array[0];
+
+    var_dump($a);
     
-    foreach($array as $row){
+    foreach($a as $row){
         echo "test" . $row['testo'];
         //$query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
         //$result = pg_query($conn, $query);
