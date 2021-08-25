@@ -7,11 +7,11 @@
     //per prendere tutte le righe
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
     
-    $textList = json_decode($testo);
+    $textList = json_decode(json_encode($testo), true);
     var_dump($textList);
-    foreach($textList->values as $row){
-        echo $row->group->testo;
-    }
+    var_dump(get_object_vars($textList));
+    var_dump((array)$textList);
+
     /*
     foreach($textList as $row){
         echo "test" . var_dump($row['testo']);
