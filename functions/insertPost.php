@@ -11,11 +11,11 @@
     $array = array($textList);
     $a = json_decode($array[0], true);
 
-    var_dump($a);
+    //var_dump($a);
     
     foreach($a as $row){
         echo "test" . $row['testo'];
-        $query = "INSERT INTO Post (testo, categoria, tipo) VALUES ('$row['testo']', 1, '$row['tipo']')";
+        $query = "INSERT INTO Post (testo, categoria, tipo) VALUES ('" . $row['testo'] . "', 1, '". $row['tipo'] ."')";
         $result = pg_query($conn, $query);
         echo pg_fetch_all($result);
     }
