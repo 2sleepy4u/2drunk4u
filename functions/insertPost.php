@@ -6,7 +6,7 @@
     $testo = pg_escape_string($testo);
     //per prendere tutte le righe
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
-
+    $testo = json_decode(json_encode($testo), true);
     $textList = json_decode($testo);
     var_dump($textList);
     foreach($textList as $x => $value){
