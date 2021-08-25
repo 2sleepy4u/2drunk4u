@@ -8,7 +8,7 @@
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
     $textList = json_decode($testo);
-    //var_dump($textList);
+    var_dump($textList);
 
     foreach($textList as $row){
         echo $row;
