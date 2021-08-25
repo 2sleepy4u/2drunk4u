@@ -7,7 +7,7 @@
     //per prendere tutte le righe
     //$textList = preg_split('/\r\n|\r|\n/', $testo);
 
-    $textList = json_decode($testo);
+    $textList = json_decode($testo["frasi"]);
     var_dump($textList);
     foreach($textList as $row){
         echo "test" . var_dump($row['testo']);
