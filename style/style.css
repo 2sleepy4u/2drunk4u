@@ -221,6 +221,14 @@ body{
     overflow-x: hidden;
 }
 
+.timer{
+    background-color: green !important;
+}
+
+.effect{
+    background-color: orange !important;
+}
+
 @media only screen and (max-height: 700px){
     #logo{
         width: 70px;

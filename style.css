@@ -177,6 +177,8 @@ body{
     height: 300px;
 }
 
+
+
 @media only screen and (max-height: 700px){
     #logo{
         width: 70px;

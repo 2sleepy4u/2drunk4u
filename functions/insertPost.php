@@ -1,7 +1,7 @@
 <?php
     include("connect.php");
     //per togliere i caratteri problematici tipo apostrofi
-    $testo =  $_POST['testo'];
+    $testo =  $_POST['frasi'];
     //per l'apostrofo
     $testo = pg_escape_string($testo);
     //per prendere tutte le righe

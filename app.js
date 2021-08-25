@@ -52,9 +52,9 @@ function getRandomPlayer(){
     return getVariable('G' + id)
 }
 
+
 function formatSentence(sentence){
     let prev;
-    var regExp = /\[([^]+)\]/g
 
     while(sentence.includes("#")){
         let player = getRandomPlayer()
@@ -69,6 +69,18 @@ function formatSentence(sentence){
     return sentence
 }
 
+function getGameList(list, n){
+    return computeList(generateSentenceList(list, n))
+}
+
+function displaySentence(list){
+    let item = list.shift()
+    $('#sentence').text("")
+    $('#sentence').text(item.testo)
+    centerContentLoop(4)
+}
+
+//deprecated
 function generateSentence(list){
     console.log(list.length)
     let random = Math.floor(Math.random() * list.length)
@@ -80,13 +92,44 @@ function generateSentence(list){
 }
 
 function generateSentenceList(sentenceList, n){
-    var list = []
+    let list = []
     for(var i=0;i<n;i++){
-        let random = Math.floor(Math.random() * list.length)
+        let random = Math.floor(Math.random() * sentenceList.length)
 
-        list.append(formatSentence(list[random].testo))
+        list.push(sentenceList[random])
+    }
 
+    return list;
+}
 
+function computeList(list){
+    let index = 0;
+    while(index < list.length){
+        
+        if(list[index].tipo != "temp")
+            list[index].testo = formatSentence(list[index].testo)
+
+        let item = list[index]
+        
+        if(item.tipo != null){
+            switch(item.tipo){
+                case "effect":
+                        list.splice(index + 3, 0, 
+                            {
+                                testo: "l'effetto di " + item.testo + "e' finito",
+                                tipo: "temp"
+                            })
+                    break;
+                case "timer":
+                        list.splice(index + 1, 0, 
+                            {
+                                testo: "Pagina timer di 10 secondi",
+                                tipo: "temp"
+                            })
+                    break;
+            }
+        }
+        index++;
     }
 
     return list;

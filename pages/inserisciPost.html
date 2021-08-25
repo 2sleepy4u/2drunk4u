@@ -3,7 +3,7 @@
     <form method="POST" action="../functions/insertPost.php">
         <!-- <textarea id="insSentences" name="testo"></textarea> -->
         <div id=insSentences contenteditable="true" ></div>
-        <input id="dataContent" type="hidden"  name="testo">
+        <input id="dataContent" type="hidden"  name="frasi">
         <br>
         <input id="startGame" type="submit" value="Inserisci">
         <!-- aggiungere pulsante per incollare in automatico-->
@@ -14,9 +14,76 @@
 <script>
     $( "#insSentences").bind('DOMSubtreeModified', function() {
         formatSummary()
+        checkType()
+        updateList()
     })
 
+    //controlla se bisogna aggiornate i tipi delle frasi
+    function checkType(){
+        //per permettere di rimuovere le frasi onclick
 
+        var timeout,
+            longtouch;
+
+        $('#insSentences').children().off('click')
+        $('#insSentences').children().on('click', function(e){
+            console.log("TT")
+
+            if(!$(e.target).hasClass("effect") && !$(e.target).hasClass("timer")){
+                $(e.target).addClass("effect")
+                $(e.target).removeClass("timer")
+            }
+            else if($(e.target).addClass("effect") && !$(e.target).hasClass("timer")){
+                $(e.target).removeClass("effect")
+                $(e.target).addClass("timer")
+            }
+            else{
+                $(e.target).removeClass("effect")
+                $(e.target).removeClass("timer")
+            }
+
+            updateList()
+        })
+        $('#insSentences').children().bind('touchstart', function(e) {
+            timeout = setTimeout(function() {
+                longtouch = true;
+            }, 1000)
+        }).bind('touchend', function(e) {
+
+            if (longtouch) 
+                $(e.target).remove()
+            
+            
+            longtouch = false;
+            clearTimeout(timeout);
+        });
+    }
+
+    //aggiorna la lista
+    function updateList(){
+        //vengono salvate le frasi
+        var righe = $('#insSentences').children()
+        var frasi = {}
+
+        for(var i=0;i<righe.length;i++){
+            var str = $(righe[i]).text()
+            str = str.trim()
+            if(str != "")
+                frasi[i] = {
+                        testo: str, 
+                        categoria: 1, 
+                        tipo: $(righe[i]).hasClass("effect") ? "effect" : (
+                                    $(righe[i]).hasClass("timer") ? "timer" : null
+                                )
+                    }
+        }
+
+        console.log(frasi) 
+
+        $("#dataContent").val(JSON.stringify(frasi))
+    }
+
+    //forza la formattazione delle frasi per visualizzarle correttamente
     function forceFormat(){
         var reg = /(\<div.*?\>)/gi;
         var txt = $('#insSentences').contents()[0].outerHTML.replace(reg, "");
@@ -25,14 +92,13 @@
         $('#insSentences').append($(txt).prev())
     }
 
+    //formattazione di base delle frasi per una corretta visualizzazione
     function formatSummary(){
 
         //nel caso ci sia del testo senza DIV attorno gli aggiunge (il primo elemento non ha mai div)
         if(!$($('#insSentences').contents()).is("div"))
             $($('#insSentences').contents()).wrap('<div></div>')
             
-            
-
         //gestisce i figli dei nodi
         //nessuna frase può avere nodi figli
         if($('#insSentences').contents().children().length > 0 && !$('#insSentences').contents().children().is('br')){
@@ -45,28 +111,7 @@
         //viene aggiunta la classe per visualizzare bene le righe
         $('#insSentences').children().addClass("riga")
 
-        //per permettere di rimuovere le frasi onclick
-        $('#insSentences').children().off('click')
-        $('#insSentences').children().click((e)=>{
-            $(e.target).remove()
-        })  
+        
   
-        //vengono salvate le frasi
-        var righe = $('#insSentences').children()
-        var frasi = {}
-
-        for(var i=0;i<righe.length;i++){
-            var str = $(righe[i]).text()
-            str = str.trim()
-            if(str != "")
-                frasi[i] = str
-        }
-
-            
-        
-        console.log(frasi) 
-
-        $("#dataContent").val(JSON.stringify(frasi))
-        
     }
 </script>
