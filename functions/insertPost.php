@@ -10,7 +10,7 @@
     $textList = json_decode($testo);
     var_dump($textList);
     foreach($textList->values as $row){
-        echo $row;
+        echo $row->group->testo;
     }
     /*
     foreach($textList as $row){
