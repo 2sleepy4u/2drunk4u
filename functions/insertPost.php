@@ -9,17 +9,14 @@
     
     $textList = json_decode(json_encode($testo), true);
     var_dump($textList);
-    var_dump(get_object_vars($textList));
-    var_dump((array)$textList);
-
-    /*
+    
     foreach($textList as $row){
-        echo "test" . var_dump($row['testo']);
-        $query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
-        $result = pg_query($conn, $query);
-        echo pg_fetch_all($result);
+        echo "test" . var_dump($row);
+        //$query = "INSERT INTO Post (testo, categoria) VALUES ('$row', 1)";
+        //$result = pg_query($conn, $query);
+        //echo pg_fetch_all($result);
     }
-    */
+    
 
     include("disconnect.php");
 ?>
