@@ -9,7 +9,7 @@
     
     $textList = json_decode(json_encode($testo), true);
     $array = array($textList);
-    $a = json_decode($array[0]);
+    $a = json_decode($array[0], true);
 
     var_dump($a);
     
