@@ -2,7 +2,7 @@
     include("connect.php");
 
     $sentences = array();
-    $query = "SELECT testo, nome FROM post, categorie WHERE categoria=categorie.id_categoria";
+    $query = "SELECT testo, nome, tipo FROM post, categorie WHERE categoria=categorie.id_categoria";
     $result = pg_query($conn, $query);
 
     $result = pg_fetch_all($result);
